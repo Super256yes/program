@@ -303,7 +303,7 @@ Build Released on: {}""".format (clientName ,version ,buildDate ))#line:398
             image_path =takeScreenshot ()#line:407
             base64_image =encode_image (image_path )#line:409
             log ("You are now about the witness the strength of street knowledge. (if the api shit works)")#line:411
-            response =openAIClient .chat .completions .create (model ="gpt-4o-mini",messages =[{"role":"user","content":[{"type":"text","text":"Do not format the response. act like you can read this in a txt.",},{"type":"image_url","image_url":{"url":f"data:image/jpeg;base64,{base64_image}"},},],}],)#line:430
+            response =openAIClient .chat .completions .create (model ="gpt-4o-mini",messages =[{"role":"user","content":[{"type":"text","text":"I want you to interperet the question/promp/image which is asked in this photo. Do not format the response. act like you can read this in a txt.",},{"type":"image_url","image_url":{"url":f"data:image/jpeg;base64,{base64_image}"},},],}],)#line:430
             aiResponse =response .choices [0 ]#line:432
             log (aiResponse )#line:434
             if (show_response_text ==True ):#line:436
