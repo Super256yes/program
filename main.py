@@ -19,7 +19,7 @@ import hashlib #line:18
 import colorama #line:19
 import socket #line:20
 clientName ="theArc"#line:23
-version ="v1.1"#line:24
+version ="v1.1 Test Candidate"#line:24
 buildDate ="Feburary 20th, 2025"#line:25
 vlc_path ="vlc.exe"#line:26
 inputCheckDelay =0.016666 #line:27
@@ -28,62 +28,62 @@ ip_address =socket .gethostbyname (hostname )#line:29
 clientKey =""#line:30
 colorama .init ()#line:32
 headers ={'Content-Type':'application/json'}#line:36
-def toSHA256 (OO0OOO0O00O000O00 ):#line:38
-    O0O00OO0OOO00O0OO =hashlib .sha256 ()#line:39
-    O0O00OO0OOO00O0OO .update (OO0OOO0O00O000O00 .encode ('utf-8'))#line:40
-    O000OO000O00OO0OO =O0O00OO0OOO00O0OO .hexdigest ()#line:41
-    return O000OO000O00OO0OO #line:42
+def toSHA256 (OOOOO0OOOO0000O0O ):#line:38
+    OOOOOOOO0O0O000O0 =hashlib .sha256 ()#line:39
+    OOOOOOOO0O0O000O0 .update (OOOOO0OOOO0000O0O .encode ('utf-8'))#line:40
+    O0OO0OOO0O0O0OOO0 =OOOOOOOO0O0O000O0 .hexdigest ()#line:41
+    return O0OO0OOO0O0O0OOO0 #line:42
 def getLocalIP ():#line:44
-    OO000OO0OO00O0OO0 =socket .socket (socket .AF_INET ,socket .SOCK_DGRAM )#line:45
+    O0O000O0O0O000OOO =socket .socket (socket .AF_INET ,socket .SOCK_DGRAM )#line:45
     try :#line:46
-        OO000OO0OO00O0OO0 .connect (("8.8.8.8",80 ))#line:48
-        OO0O0O000O0O00O0O =OO000OO0OO00O0OO0 .getsockname ()[0 ]#line:49
-    except Exception as O00O00O0OOO00O000 :#line:50
-        OO0O0O000O0O00O0O ="Unable to get local IP"#line:51
+        O0O000O0O0O000OOO .connect (("8.8.8.8",80 ))#line:48
+        O0OO000OO00O00O0O =O0O000O0O0O000OOO .getsockname ()[0 ]#line:49
+    except Exception as OOO0O0O00O00O00O0 :#line:50
+        O0OO000OO00O00O0O ="Unable to get local IP"#line:51
     finally :#line:52
-        OO000OO0OO00O0OO0 .close ()#line:53
-    return OO0O0O000O0O00O0O #line:54
-def log (O00OOOOOOO00O0O0O ):#line:56
-    print (f"[{Fore.GREEN}INFO{Fore.RESET}] {O00OOOOOOO00O0O0O}")#line:57
-def logError (O0OOO000OOO0O0OO0 ):#line:59
-    print (f"[{Fore.RED}ERROR{Fore.WHITE}] {O0OOO000OOO0O0OO0}")#line:60
-def logWarning (OOOO0OOO000O0OOOO ):#line:62
-    print (f"[{Fore.YELLOW}WARNING{Fore.WHITE}] {OOOO0OOO000O0OOOO}")#line:63
-def logFatal (OOOO00OOO00OO0O00 ):#line:65
-    print (f"[{Fore.RED}FATAL{Fore.WHITE}] {OOOO00OOO00OO0O00}")#line:66
+        O0O000O0O0O000OOO .close ()#line:53
+    return O0OO000OO00O00O0O #line:54
+def log (OO0OO000OOOOOOOO0 ):#line:56
+    print (f"[{Fore.GREEN}INFO{Fore.RESET}] {OO0OO000OOOOOOOO0}")#line:57
+def logError (O0O00OO0OO0OO00O0 ):#line:59
+    print (f"[{Fore.RED}ERROR{Fore.WHITE}] {O0O00OO0OO0OO00O0}")#line:60
+def logWarning (O0OO0OOO0OO00OOO0 ):#line:62
+    print (f"[{Fore.YELLOW}WARNING{Fore.WHITE}] {O0OO0OOO0OO00OOO0}")#line:63
+def logFatal (O00OO00O00O000O0O ):#line:65
+    print (f"[{Fore.RED}FATAL{Fore.WHITE}] {O00OO00O00O000O0O}")#line:66
     exit ()#line:67
-def pingDomain (O0OO000OO00OOOO00 ,OOO0O0O000O0O0OO0 ):#line:69
+def pingDomain (OOO00O00OO0OOO00O ,OOO00O00OO0O00000 ):#line:69
     try :#line:70
-        O00OO0O00OO0OO0O0 =requests .get (f"http://{O0OO000OO00OOOO00}",timeout =5 )#line:71
-        if O00OO0O00OO0OO0O0 .status_code ==200 :#line:72
-            if OOO0O0O000O0O0OO0 ==True :#line:73
-                log (f"Website: {O0OO000OO00OOOO00} Status:"+Fore .GREEN +" Connected"+Fore .RESET +f" - Status Code: {O00OO0O00OO0OO0O0.status_code}")#line:74
+        O00OO0O0O00OOOOOO =requests .get (f"http://{OOO00O00OO0OOO00O}",timeout =5 )#line:71
+        if O00OO0O0O00OOOOOO .status_code ==200 :#line:72
+            if OOO00O00OO0O00000 ==True :#line:73
+                log (f"Website: {OOO00O00OO0OOO00O} Status:"+Fore .GREEN +" Connected"+Fore .RESET +f" - Status Code: {O00OO0O0O00OOOOOO.status_code}")#line:74
             return True #line:75
         else :#line:76
-            if (O00OO0O00OO0OO0O0 .status_code ==403 ):#line:77
-                    if OOO0O0O000O0O0OO0 ==True :#line:78
-                        log (f"Website: {O0OO000OO00OOOO00} Status:"+Fore .GREEN +" Connected"+Fore .RESET +f" - Status Code: {O00OO0O00OO0OO0O0.status_code}")#line:79
+            if (O00OO0O0O00OOOOOO .status_code ==403 ):#line:77
+                    if OOO00O00OO0O00000 ==True :#line:78
+                        log (f"Website: {OOO00O00OO0OOO00O} Status:"+Fore .GREEN +" Connected"+Fore .RESET +f" - Status Code: {O00OO0O0O00OOOOOO.status_code}")#line:79
                     return True #line:80
             else :#line:81
-                if OOO0O0O000O0O0OO0 ==True :#line:82
-                    logError (f"Website: {O0OO000OO00OOOO00} Status:"+Fore .RED +f" Unable to Connect (Status code: {O00OO0O00OO0OO0O0.status_code})"+Fore .RESET )#line:83
+                if OOO00O00OO0O00000 ==True :#line:82
+                    logError (f"Website: {OOO00O00OO0OOO00O} Status:"+Fore .RED +f" Unable to Connect (Status code: {O00OO0O0O00OOOOOO.status_code})"+Fore .RESET )#line:83
                 return False #line:84
-    except requests .exceptions .RequestException as OOOO0OO0OO00O000O :#line:85
-        if OOO0O0O000O0O0OO0 ==True :#line:86
-            logError (f"Website: {O0OO000OO00OOOO00} Status:"+Fore .RED +" Unable to Connect"+Fore .RESET )#line:87
+    except requests .exceptions .RequestException as OOO0O000OO0O00O0O :#line:85
+        if OOO00O00OO0O00000 ==True :#line:86
+            logError (f"Website: {OOO00O00OO0OOO00O} Status:"+Fore .RED +" Unable to Connect"+Fore .RESET )#line:87
         return False #line:88
-def logThroughWebhook (O000OOO00OO0000OO ):#line:90
-    O00O000OOOOOO0OO0 ={'content':'{}'.format (O000OOO00OO0000OO ),'username':'theArc'}#line:95
-    requests .post ("https://discord.com/api/webhooks/1336862514591305810/O4YZZalX6AJXut4TEY0_4EEXb13eEmu6C4v3MKCzHLROATyfkdxyt-wzWWI14vV9WutT",data =json .dumps (O00O000OOOOOO0OO0 ),headers =headers )#line:96
+def logThroughWebhook (OOO0O00O0OOO0OO0O ):#line:90
+    OOO0000OOOO00OOOO ={'content':'{}'.format (OOO0O00O0OOO0OO0O ),'username':'theArc'}#line:95
+    requests .post ("https://discord.com/api/webhooks/1336862514591305810/O4YZZalX6AJXut4TEY0_4EEXb13eEmu6C4v3MKCzHLROATyfkdxyt-wzWWI14vV9WutT",data =json .dumps (OOO0000OOOO00OOOO ),headers =headers )#line:96
 os .system ("cls")#line:98
 if pingDomain ("raw.githubusercontent.com",False )==False :#line:99
     logFatal ("Was unable to connect to 'raw.githubuser.content.com' which is required to run to program. Make sure that it isn't being blocked by a firewall.")#line:100
-def get_text_from_github_raw (O0O00OO0O0OO0OOO0 ):#line:108
-    O0O0OO00O00000O00 =requests .get (O0O00OO0O0OO0OOO0 )#line:109
-    if O0O0OO00O00000O00 .status_code ==200 :#line:110
-        O0OO0OOO00OO0OO0O =O0O0OO00O00000O00 .text #line:111
-        OOOO0OOOOOO000OO0 =O0OO0OOO00OO0OO0O .split ('\n')#line:112
-        return OOOO0OOOOOO000OO0 #line:113
+def get_text_from_github_raw (O0O0O0O00OO00O0O0 ):#line:108
+    OOO00000O00OO00OO =requests .get (O0O0O0O00OO00O0O0 )#line:109
+    if OOO00000O00OO00OO .status_code ==200 :#line:110
+        O0O0O00O000OO0O0O =OOO00000O00OO00OO .text #line:111
+        OOOO0O0O00OOOOOOO =O0O0O00O000OO0O0O .split ('\n')#line:112
+        return OOOO0O0O00OOOOOOO #line:113
     else :#line:114
         print ("Failed to fetch the text from the given URL.")#line:115
         return []#line:116
@@ -194,61 +194,61 @@ if override_groq_with_chatgpt ==True or allow_image_sending ==True :#line:261
     log ("OpenAI key initialized")#line:263
 pytesseract .pytesseract .tesseract_cmd ="tesseract.exe"#line:272
 log ("tesseract.exe initialized")#line:274
-def extract_text_from_image (O0O0000O00O00OOOO ):#line:276
-    with Image .open (O0O0000O00O00OOOO )as O0O0O0OO0O0000O0O :#line:277
-        OOOO00O00O0000000 =pytesseract .image_to_string (O0O0O0OO0O0000O0O )#line:278
-    return OOOO00O00O0000000 #line:279
+def extract_text_from_image (OOO00OO0O0O0OOO0O ):#line:276
+    with Image .open (OOO00OO0O0O0OOO0O )as OOO000OO0OOO00O00 :#line:277
+        OO0OOO0OOO0OOO0O0 =pytesseract .image_to_string (OOO000OO0OOO00O00 )#line:278
+    return OO0OOO0OOO0OOO0O0 #line:279
 def take_screenshot ():#line:281
-    O0OOOOOO0OOOOO00O =datetime .now ()#line:282
-    O0OO000000OOOOO00 =O0OOOOOO0OOOOO00O .strftime ("%Y%m%d_%H%M%S")+".png"#line:283
-    O0OO000OO00O000OO =pyautogui .screenshot ()#line:284
-    OO000O00O0OOO000O ="cache"#line:286
-    if not os .path .exists (OO000O00O0OOO000O ):#line:287
-        os .makedirs (OO000O00O0OOO000O )#line:288
+    OOO00OOO00000OO0O =datetime .now ()#line:282
+    OOO0O0OOOO0O0O0O0 =OOO00OOO00000OO0O .strftime ("%Y%m%d_%H%M%S")+".png"#line:283
+    OO000000OOOO00OOO =pyautogui .screenshot ()#line:284
+    O00O0O000O0O00OO0 ="cache"#line:286
+    if not os .path .exists (O00O0O000O0O00OO0 ):#line:287
+        os .makedirs (O00O0O000O0O00OO0 )#line:288
         log ("Created missing directory /cache/.")#line:289
-    OOOOOOO000OOO000O =os .path .join (OO000O00O0OOO000O ,O0OO000000OOOOO00 )#line:291
-    O0OO000OO00O000OO .save (OOOOOOO000OOO000O )#line:292
-    log ("Screenshot saved at: {}".format (OOOOOOO000OOO000O ))#line:293
-    return OOOOOOO000OOO000O #line:294
-def sendResponseThroughWebhook (OO00OO000OOOO0000 ):#line:296
-    O000O0OOOO00000O0 ={'content':'<@{}> {}'.format (discord_user_id ,OO00OO000OOOO0000 ),'username':'ANSWERS WEBHOOK'}#line:301
-    OO0000O0OOOO0OO00 =requests .post (webhook_url ,data =json .dumps (O000O0OOOO00000O0 ),headers =headers )#line:302
-    if OO0000O0OOOO0OO00 .status_code ==204 :#line:303
+    OOO0O0OO000O000O0 =os .path .join (O00O0O000O0O00OO0 ,OOO0O0OOOO0O0O0O0 )#line:291
+    OO000000OOOO00OOO .save (OOO0O0OO000O000O0 )#line:292
+    log ("Screenshot saved at: {}".format (OOO0O0OO000O000O0 ))#line:293
+    return OOO0O0OO000O000O0 #line:294
+def sendResponseThroughWebhook (OO0OO0O0OO0O000O0 ):#line:296
+    O0O0O0OOOOO00OO00 ={'content':'<@{}> {}'.format (discord_user_id ,OO0OO0O0OO0O000O0 ),'username':'ANSWERS WEBHOOK'}#line:301
+    OO0O0000O00O00000 =requests .post (webhook_url ,data =json .dumps (O0O0O0OOOOO00OO00 ),headers =headers )#line:302
+    if OO0O0000O00O00000 .status_code ==204 :#line:303
         log ('Answer send to webhook sucessfully')#line:304
     else :#line:305
         logWarning ('Failed to sent answer to webhook')#line:306
-def sendResponseThroughWindow (OOOOO0O00OOOOOOOO ):#line:308
-    if hasattr (OOOOO0O00OOOOOOOO ,'message')and hasattr (OOOOO0O00OOOOOOOO .message ,'content'):#line:310
-        O0OO00OO0OOOOOO00 =OOOOO0O00OOOOOOOO .message .content #line:311
+def sendResponseThroughWindow (O00O0O00O00O000OO ):#line:308
+    if hasattr (O00O0O00O00O000OO ,'message')and hasattr (O00O0O00O00O000OO .message ,'content'):#line:310
+        O0OOO0O0000OOO0OO =O00O0O00O00O000OO .message .content #line:311
     else :#line:312
-        O0OO00OO0OOOOOO00 =str (OOOOO0O00OOOOOOOO )#line:313
-    with open ("transferer.json","r",encoding ="utf-8")as O00OOOOO0O00OO00O :#line:314
-        O00OO0O0O00OO0000 =json .load (O00OOOOO0O00OO00O )#line:315
+        O0OOO0O0000OOO0OO =str (O00O0O00O00O000OO )#line:313
+    with open ("transferer.json","r",encoding ="utf-8")as O0O0O00000OOOO0OO :#line:314
+        O000O0OOO00OO0OO0 =json .load (O0O0O00000OOOO0OO )#line:315
         log ("JSON data has been successfully read.")#line:316
-        O00OO0O0O00OO0000 ["aiResponse"]=O0OO00OO0OOOOOO00 #line:317
-        log ("Updated aiResponse to '{}'.".format (O0OO00OO0OOOOOO00 ))#line:318
-        with open ("transferer.json","w",encoding ="utf-8")as O00OOOOO0O00OO00O :#line:319
-            json .dump (O00OO0O0O00OO0000 ,O00OOOOO0O00OO00O ,indent =4 ,ensure_ascii =False )#line:320
+        O000O0OOO00OO0OO0 ["aiResponse"]=O0OOO0O0000OOO0OO #line:317
+        log ("Updated aiResponse to '{}'.".format (O0OOO0O0000OOO0OO ))#line:318
+        with open ("transferer.json","w",encoding ="utf-8")as O0O0O00000OOOO0OO :#line:319
+            json .dump (O000O0OOO00OO0OO0 ,O0O0O00000OOOO0OO ,indent =4 ,ensure_ascii =False )#line:320
         log ("wrote aiResponse to file.")#line:321
         log ("opening textViewer.pyw.")#line:322
         os .system ("textViewer.pyw")#line:323
         log ("textViewer.pyw closed.")#line:324
-def readResponse (OOO0000O0OOOO0000 ):#line:326
+def readResponse (O000O00OOOOO0OOO0 ):#line:326
     log ('Trying to read ')#line:328
-    O00O0O0OOOOO000O0 ='en'#line:329
-    OOO000O0OOOOO0000 =gTTS (text =OOO0000O0OOOO0000 ,lang =O00O0O0OOOOO000O0 ,slow =False )#line:330
-    OOO000O0OOOOO0000 .save ("audio.mp3")#line:331
+    O0OOO0O0O00000OO0 ='en'#line:329
+    OOOOO0000O00OO00O =gTTS (text =O000O00OOOOO0OOO0 ,lang =O0OOO0O0O00000OO0 ,slow =False )#line:330
+    OOOOO0000O00OO00O .save ("audio.mp3")#line:331
     subprocess .run ([vlc_path ,'--intf','dummy','--no-video','--play-and-exit','audio.mp3'])#line:332
     log ("Playing 'audio.mp3' from cache!")#line:333
     os .system ("del audio.mp3")#line:334
 def takeScreenshot ():#line:336
-    O00O000O0000O0O00 =take_screenshot ()#line:337
+    O0OO0OO0OO000000O =take_screenshot ()#line:337
     log ("Screenshot Captured.")#line:338
-    log ("Path to screenshot: "+O00O000O0000O0O00 )#line:339
-    return O00O000O0000O0O00 #line:340
-def encode_image (OO00O0OO00O00000O ):#line:342
-    with open (OO00O0OO00O00000O ,"rb")as O00O000OO00OO000O :#line:343
-        return base64 .b64encode (O00O000OO00OO000O .read ()).decode ("utf-8")#line:344
+    log ("Path to screenshot: "+O0OO0OO0OO000000O )#line:339
+    return O0OO0OO0OO000000O #line:340
+def encode_image (O00OO00OOO000O0OO ):#line:342
+    with open (O00OO00OOO000O0OO ,"rb")as O0OOO0O0OO000OO00 :#line:343
+        return base64 .b64encode (O0OOO0O0OO000OO00 .read ()).decode ("utf-8")#line:344
 log ("methods initialized")#line:346
 print ("""
 
@@ -280,68 +280,71 @@ while True :#line:369
     if keyboard .is_pressed ('Alt')and keyboard .is_pressed ('C'):#line:379
         log ("Clearing output.")#line:380
         os .system ("cls")#line:381
-    if keyboard .is_pressed ('Alt')and keyboard .is_pressed ('H'):#line:383
+        time .sleep (1 )#line:382
+    if keyboard .is_pressed ('Alt')and keyboard .is_pressed ('H'):#line:384
         print ("""\nLIST OF KEYBINDS:
 ALT+GRAVE(`) -> captures screenshot extracts text and sends text to AI
 ALT+SHIFT+GRAVE(`) -> captures screenshot and directly sends it to AI
 ALT+T -> Terminates Program and threading windows
 ALT+H -> shows list of keybinds
 ALT+I -> shows program info
-ALT+C -> clears console output""")#line:390
-    if keyboard .is_pressed ('Alt')and keyboard .is_pressed ('I'):#line:392
+ALT+C -> clears console output""")#line:391
+        time .sleep (1 )#line:392
+    if keyboard .is_pressed ('Alt')and keyboard .is_pressed ('I'):#line:394
         print ("""\n{}
 Developed by: wassaps
 Version: {}
-Build Released on: {}""".format (clientName ,version ,buildDate ))#line:396
-    if keyboard .is_pressed ('Alt')and keyboard .is_pressed ('Shift')and keyboard .is_pressed ('`'):#line:400
-        if allow_image_sending ==True :#line:402
-            log ("Using screenshot to send to ai")#line:403
-            image_path =takeScreenshot ()#line:404
-            base64_image =encode_image (image_path )#line:406
-            log ("You are now about the witness the strength of street knowledge. (if the api shit works)")#line:408
-            response =openAIClient .chat .completions .create (model ="gpt-4o-mini",messages =[{"role":"user","content":[{"type":"text","text":"Do not format the response. act like you can read this in a txt.",},{"type":"image_url","image_url":{"url":f"data:image/jpeg;base64,{base64_image}"},},],}],)#line:427
-            aiResponse =response .choices [0 ]#line:429
-            log (aiResponse )#line:431
-            if (show_response_text ==True ):#line:433
-                sendResponseThroughWindow (aiResponse )#line:434
-            if (discord_webhook_enabled ==True ):#line:436
-                sendResponseThroughWebhook (aiResponse )#line:437
-            if (read_response_sound ==True ):#line:439
-                readResponse (aiResponse )#line:440
-            if (delete_cache_option ==True ):#line:442
-                log ("Deleting Cache")#line:443
-                os .remove (image_path )#line:444
-            log ('Procedure complete. Press ALT+H to show a list of keybinds.')#line:446
-        else :#line:447
-            logWarning ("'allow_image_sending' is set to False. Set it to True to allow this feature to be used.")#line:448
-            time .sleep (.5 )#line:449
-    else :#line:451
-        if keyboard .is_pressed ('Alt')and keyboard .is_pressed ('`'):#line:452
-            image_path =takeScreenshot ()#line:453
-            if os .path .exists (image_path ):#line:454
-                image =Image .open (image_path ,mode ='r')#line:455
-                extractedText =image_to_string (image )#line:456
-                log ("SHIT THAT WAS EXTRACTED:")#line:457
-                log (extractedText )#line:458
-                if (delete_cache_option ==True ):#line:459
-                    log ("Deleting Cache")#line:460
-                    os .remove (image_path )#line:461
-                log ("You are now about the witness the strength of street knowledge. (if the api shit works)")#line:463
-                if (override_groq_with_chatgpt !=True ):#line:478
-                    log ('Using groq api to get response.')#line:479
-                    response =groqClient .chat .completions .create (messages =[{"role":"user","content":extractedText }],model ="llama3-8b-8192",)#line:488
-                    aiResponse =response .choices [0 ].message .content #line:490
-                else :#line:491
-                    log ('Using ChatGPT to get response.')#line:492
-                    completion =openAIClient .chat .completions .create (model ="gpt-4o",messages =[{"role":"user","content":"I want you to interperet the question/promp which is asked in this photo. Do not format the response. act like you can read this in a txt."+extractedText }])#line:499
-                    aiResponse =completion .choices [0 ].message .content #line:500
-                log (aiResponse )#line:501
-                if (show_response_text ==True ):#line:502
-                    sendResponseThroughWindow (aiResponse )#line:503
-                if (discord_webhook_enabled ==True ):#line:505
-                    sendResponseThroughWebhook (aiResponse )#line:506
-                if (read_response_sound ==True ):#line:508
-                    readResponse (aiResponse )#line:509
-            else :#line:511
-                logError (f"File not found: {image_path}")#line:512
+Build Released on: {}""".format (clientName ,version ,buildDate ))#line:398
+        time .sleep (1 )#line:399
+    if keyboard .is_pressed ('Alt')and keyboard .is_pressed ('Shift')and keyboard .is_pressed ('`'):#line:403
+        if allow_image_sending ==True :#line:405
+            log ("Using screenshot to send to ai")#line:406
+            image_path =takeScreenshot ()#line:407
+            base64_image =encode_image (image_path )#line:409
+            log ("You are now about the witness the strength of street knowledge. (if the api shit works)")#line:411
+            response =openAIClient .chat .completions .create (model ="gpt-4o-mini",messages =[{"role":"user","content":[{"type":"text","text":"Do not format the response. act like you can read this in a txt.",},{"type":"image_url","image_url":{"url":f"data:image/jpeg;base64,{base64_image}"},},],}],)#line:430
+            aiResponse =response .choices [0 ]#line:432
+            log (aiResponse )#line:434
+            if (show_response_text ==True ):#line:436
+                sendResponseThroughWindow (aiResponse )#line:437
+            if (discord_webhook_enabled ==True ):#line:439
+                sendResponseThroughWebhook (aiResponse )#line:440
+            if (read_response_sound ==True ):#line:442
+                readResponse (aiResponse )#line:443
+            if (delete_cache_option ==True ):#line:445
+                log ("Deleting Cache")#line:446
+                os .remove (image_path )#line:447
+            log ('Procedure complete. Press ALT+H to show a list of keybinds.')#line:449
+        else :#line:450
+            logWarning ("'allow_image_sending' is set to False. Set it to True to allow this feature to be used.")#line:451
+            time .sleep (.5 )#line:452
+    else :#line:454
+        if keyboard .is_pressed ('Alt')and keyboard .is_pressed ('`'):#line:455
+            image_path =takeScreenshot ()#line:456
+            if os .path .exists (image_path ):#line:457
+                image =Image .open (image_path ,mode ='r')#line:458
+                extractedText =image_to_string (image )#line:459
+                log ("SHIT THAT WAS EXTRACTED:")#line:460
+                log (extractedText )#line:461
+                if (delete_cache_option ==True ):#line:462
+                    log ("Deleting Cache")#line:463
+                    os .remove (image_path )#line:464
+                log ("You are now about the witness the strength of street knowledge. (if the api shit works)")#line:466
+                if (override_groq_with_chatgpt !=True ):#line:481
+                    log ('Using groq api to get response.')#line:482
+                    response =groqClient .chat .completions .create (messages =[{"role":"user","content":extractedText }],model ="llama3-8b-8192",)#line:491
+                    aiResponse =response .choices [0 ].message .content #line:493
+                else :#line:494
+                    log ('Using ChatGPT to get response.')#line:495
+                    completion =openAIClient .chat .completions .create (model ="gpt-4o",messages =[{"role":"user","content":"I want you to interperet the question/promp which is asked in this photo. Do not format the response. act like you can read this in a txt."+extractedText }])#line:502
+                    aiResponse =completion .choices [0 ].message .content #line:503
+                log (aiResponse )#line:504
+                if (show_response_text ==True ):#line:505
+                    sendResponseThroughWindow (aiResponse )#line:506
+                if (discord_webhook_enabled ==True ):#line:508
+                    sendResponseThroughWebhook (aiResponse )#line:509
+                if (read_response_sound ==True ):#line:511
+                    readResponse (aiResponse )#line:512
+            else :#line:514
+                logError (f"File not found: {image_path}")#line:515
             log ('Procedure complete. Press ALT+H to show a list of keybinds.')
