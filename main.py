@@ -107,6 +107,7 @@ for x in range (len (listOfKeys )):#line:139
         if x +1 ==len (listOfKeys ):#line:147
             logThroughWebhook (f"INVALID KEY LOGIN:\nAttempted Key: {clientKey} \nIP Adress: {ip_address} \nHost Name: {hostname}\nNetwork Address: {getLocalIP()}")#line:148
             logFatal ("Key is invalid. Make sure you properly put your key into the parameter 'client_key' in 'config.json'.")#line:149
+            time.sleep(1000)
 pressEnter =input ("[{}]: Press 'Enter' to start the program.".format (clientName ))#line:153
 log ("Attempting to start program...")#line:155
 time .sleep (1.5 )#line:157
